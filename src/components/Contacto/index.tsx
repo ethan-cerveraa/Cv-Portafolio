@@ -6,7 +6,7 @@ import { FaLocationDot } from 'react-icons/fa6';
 
 export default function Contacto() {
     return (
-        <section id="Contact" className="bg-[#0B0B0C] text-white">
+        <section id="Contacto" className="bg-[#0B0B0C] text-white">
             <div className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-20">
                 {/* Header */}
                 <div className="text-center">
