@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Image, { type StaticImageData } from 'next/image';
 import DevF from '@/assets/DevF.png';
 import Santander from '@/assets/Santander.png';
 
 type Slide = {
-    img: any;
+    img: StaticImageData;
     title: string;
     desc: string;
 };
@@ -22,34 +22,41 @@ const SLIDES: Slide[] = [
         title: 'Santander | Open Academy',
         desc: 'Fundamentos de IA/ChatGPT. Enfoque en productividad, prompts y ética.',
     },
-    // ← Agrega más certificados aquí (img, title, desc)
 ];
 
 export default function Certificados() {
     const [index, setIndex] = useState(0);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    // ✅ Compatible en browser y Node: evita errores de tipo
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const touchStart = useRef<number | null>(null);
 
-    // Auto-slide cada 6s
+    const next = useCallback(
+        () => setIndex((i) => (i + 1) % SLIDES.length),
+        []
+    );
+
+    const prev = useCallback(
+        () => setIndex((i) => (i - 1 + SLIDES.length) % SLIDES.length),
+        []
+    );
+
+    const stop = useCallback(() => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = null;
+        }
+    }, []);
+
+    const start = useCallback(() => {
+        stop();
+        timeoutRef.current = setTimeout(next, 6000);
+    }, [next, stop]);
+
+    // ⏱️ Auto-slide con deps correctas (sin warnings)
     useEffect(() => {
         start();
-        return stop;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [index]);
-
-    const start = () => {
-        stop();
-        timeoutRef.current = setTimeout(() => {
-            next();
-        }, 6000);
-    };
-    const stop = () => {
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-
-    const prev = () => setIndex((i) => (i - 1 + SLIDES.length) % SLIDES.length);
-    const next = () => setIndex((i) => (i + 1) % SLIDES.length);
-    const go = (i: number) => setIndex(i);
+        return () => stop();
+    }, [index, start, stop]);
 
     // Soporte táctil (mobile)
     const onTouchStart = (e: React.TouchEvent) => {
@@ -58,11 +65,11 @@ export default function Certificados() {
     const onTouchEnd = (e: React.TouchEvent) => {
         if (touchStart.current == null) return;
         const diff = e.changedTouches[0].clientX - touchStart.current;
-        if (Math.abs(diff) > 50) diff > 0 ? prev() : next();
+        if (Math.abs(diff) > 50) (diff > 0 ? prev() : next());
         touchStart.current = null;
     };
 
-    // Teclado (izq/der)
+    // Navegación por teclado
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
             if (e.key === 'ArrowLeft') prev();
@@ -70,7 +77,7 @@ export default function Certificados() {
         };
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
-    }, []);
+    }, [next, prev]);
 
     return (
         <section id="certificados" className="bg-[#0B0B0C] text-white">
@@ -155,7 +162,7 @@ export default function Certificados() {
                         {SLIDES.map((_, i) => (
                             <button
                                 key={i}
-                                onClick={() => go(i)}
+                                onClick={() => setIndex(i)}
                                 aria-label={`Ir al certificado ${i + 1}`}
                                 className={[
                                     'h-2.5 w-2.5 rounded-full transition-all',
