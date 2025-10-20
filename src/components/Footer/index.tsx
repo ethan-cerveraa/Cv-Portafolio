@@ -76,8 +76,8 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+525514005619" className="hover:text-white">
-                                    +52 (55) 1400 5619
+                                <a href="tel:+5215661201760" className="hover:text-white">
+                                    +52 1 56 6120 1760
                                 </a>
                             </li>
                         </ul>

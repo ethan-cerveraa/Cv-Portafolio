@@ -6,7 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 export default function FloatingWhatsApp() {
     return (
         <a
-            href="https://api.whatsapp.com/send?phone=+5514005619&text=Me%20interesan%20tus%20servicios,%20me%20podrias%20ayudar.%20"
+            href="https://api.whatsapp.com/send?phone=+5215661201760&text=Me%20interesan%20tus%20servicios,%20me%20podrias%20ayudar."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat por WhatsApp"
