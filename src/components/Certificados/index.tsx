@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Image, { type StaticImageData } from 'next/image';
 import DevF from '@/assets/DevF.png';
 import Santander from '@/assets/Santander.png';
