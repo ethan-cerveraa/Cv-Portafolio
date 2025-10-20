@@ -1,16 +1,15 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 import DevF from '@/assets/DevF.png';
 import Santander from '@/assets/Santander.png';
 
 type Slide = {
-    img: any;
+    img: StaticImageData;   // ✅ en lugar de "any"
     title: string;
     desc: string;
 };
-
 const SLIDES: Slide[] = [
     {
         img: DevF,
