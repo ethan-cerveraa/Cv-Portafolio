@@ -37,8 +37,8 @@ export default function Contacto() {
                             icon={<FaPhoneAlt size={18} />}
                             title="Teléfono"
                             content={
-                                <a href="tel:+525514005619" className="hover:underline decoration-white/30">
-                                    +52 (55) 1400 5619
+                                <a href="tel:+5215661201760" className="hover:underline decoration-white/30">
+                                    +52 1 56 6120 1760
                                 </a>
                             }
                         />
@@ -103,7 +103,7 @@ export default function Contacto() {
                     <h3 className="text-xl font-semibold tracking-wider">Contáctanos</h3>
 
                     <form
-                        action="https://formsubmit.co/lunaaranamexico@gmail.com"
+                        action="https://formsubmit.co/devnathee@gmail.com"
                         method="POST"
                         className="mt-6 space-y-6"
                     >
@@ -140,6 +140,17 @@ export default function Contacto() {
                                 id="email"
                                 type="email"
                                 name="Email"
+                                required
+                                className="w-full border-b border-white/30 bg-transparent py-2 outline-none transition focus:border-white"
+                            />
+                        </Field>
+
+                        {/* Telefono */}
+                        <Field label="Phone" htmlFor="phone">
+                            <input
+                                id="phone"
+                                type="phone"
+                                name="Phone"
                                 required
                                 className="w-full border-b border-white/30 bg-transparent py-2 outline-none transition focus:border-white"
                             />
