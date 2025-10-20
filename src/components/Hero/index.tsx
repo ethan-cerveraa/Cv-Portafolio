@@ -21,6 +21,7 @@ function Hero() {
 
     useEffect(() => {
         const current = phrases[phraseIndex];
+
         if (!deleting && subIndex === current.length) {
             const t = setTimeout(() => setDeleting(true), holdTime);
             return () => clearTimeout(t);
@@ -36,7 +37,9 @@ function Hero() {
         }, typingSpeed);
 
         return () => clearTimeout(t);
-    }, [subIndex, deleting, phraseIndex, phrases]);
+// ✅ agrega typingSpeed (y holdTime si aparece en el efecto)
+    }, [subIndex, deleting, phraseIndex, phrases, typingSpeed, holdTime]);
+
 
     const typed = phrases[phraseIndex].slice(0, subIndex);
 
