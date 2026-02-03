@@ -5,11 +5,11 @@ import Image, { StaticImageData } from 'next/image';
 import Sazon from '@/assets/LaSazon.png';
 import Once from '@/assets/OnceUponTime.png';
 import Mind from '@/assets/MindScope.png';
-import SSA from '@/assets/SSA.png';
-import Avalia from '@/assets/Avalia.png';
 import TarjetaDigitales from "@/assets/TarjetasDigitales.png"
 import Luft from '@/assets/Luft.png';
 import LunaArana from '@/assets/LunaArana.png';
+import Evoke from '@/assets/Evoke.png';
+import AlcerGroup from '@/assets/AlcerGroup.png';
 
 /* =========================================================
    👉 Datos (agrega/edita proyectos aquí)
@@ -51,30 +51,6 @@ const PROJECTS: Project[] = [
         href: 'https://mindscope-landing.netlify.app/',
     },
     {
-        title: 'SSA México',
-        image: SSA,
-        description:
-            'Sitio para empresa de seguridad con tecnología asequible y profesional.',
-        stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
-        href: 'https://ssadefense.com/',
-    },
-    {
-        title: 'Avalia',
-        image: Avalia,
-        description:
-            'Clínica dental en CDMX que utiliza tecnología de última generación.',
-        stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
-        href: 'https://avaliadentalgroup.com/',
-    },
-    {
-        title: 'Tarjetas Digitales',
-        image: TarjetaDigitales,
-        description:
-            'Creación de tarjetas digitales para empresas y tarjetas personales.',
-        stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
-        href: 'https://avalia.avaliadentalgroup.com/',
-    },
-    {
         title: 'Luft',
         image: Luft,
         description:
@@ -89,6 +65,30 @@ const PROJECTS: Project[] = [
             'En LUNA ARANA te ofrecemos diversas opciones de hospedaje y vivienda para distintos gustos y necesidades.',
         stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
         href: 'https://lunaarana.com/',
+    },
+    {
+        title: 'Alcer Group',
+        image: AlcerGroup,
+        description:
+            'Alcer Group como un grupo empresarial enfocado en soluciones integrales para industria, tecnología y servicios especializados.',
+        stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
+        href: 'https://alcergroup.com/',
+    },
+    {
+        title: 'Evoke',
+        image: Evoke,
+        description:
+            'Landing page enfocada en Evoke, una unidad especializada de AlCer Group orientada a proyectos creativos y tecnológicos. El sitio prioriza la experiencia visual.',
+        stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
+        href: 'https://evoke.alcergroup.com/',
+    },
+    {
+        title: 'Tarjetas Digitales',
+        image: TarjetaDigitales,
+        description:
+            'Creación de tarjetas digitales para empresas y tarjetas personales.',
+        stack: ['Next.js', 'Tailwind CSS', 'React', 'Figma', 'JavaScript', 'TypeScript'],
+        href: 'https://avalia.avaliadentalgroup.com/',
     },
 ];
 
